@@ -1,0 +1,18 @@
+services:
+  oneshotlink:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN}
+      ADMIN_USER_IDS: ${ADMIN_USER_IDS}
+      UPI_ID: ${UPI_ID}
+      UPI_NAME: ${UPI_NAME}
+      BASE_URL: ${BASE_URL}
+      TOKEN_EXPIRY_MINUTES: ${TOKEN_EXPIRY_MINUTES:-15}
+      DB_PATH: /data/oneshot.db
+    volumes:
+      - oneshotlink_data:/data
+
+volumes:
+  oneshotlink_data:

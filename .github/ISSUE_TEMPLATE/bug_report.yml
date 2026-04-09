@@ -1,0 +1,64 @@
+name: Bug report
+description: Report a problem or regression
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug. Please fill out as much as you can.
+
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, Docker/hosted, and any relevant runtime details
+      placeholder: "Ubuntu 22.04, Docker compose, .NET 8"
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: App version
+      description: Output of the service (if shown) or git commit hash/tag
+      placeholder: "v1.0.0 or commit abc1234"
+    validations:
+      required: false
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: A clear and concise description of the bug
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Provide steps that reliably reproduce the issue
+      placeholder: |
+        1. Run docker compose up -d
+        2. Send /buy
+        3. Admin runs /confirm 1
+        4. Open /access/<token>
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / stack traces
+      description: Paste relevant logs (redact secrets)
+      render: shell
+    validations:
+      required: false
